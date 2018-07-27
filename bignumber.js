@@ -480,6 +480,14 @@
             return r;
         };
 
+        /*
+         * Return true if v is a BigNumber instance, otherwise return false.
+         *
+         * v {any}
+         */
+        BigNumber.isBigNumber = function (v) {
+            return v instanceof BigNumber || v && v._isBigNumber === true || false;
+        };
 
         /*
          * Return a new BigNumber whose value is the maximum of the arguments.
@@ -2491,6 +2499,7 @@
             return this.toString();
         };
 
+        P._isBigNumber = true;
 
         // Aliases for BigDecimal methods.
         //P.add = P.plus;         // P.add included above
